@@ -1,7 +1,9 @@
 import os
 from flask import Flask
-from instance.config import get_env
-
+try:
+    from instance.config import get_env
+except ImportError:
+    from config import get_env
 
 def create_app():
     app = Flask(__name__,instance_relative_config=True)
