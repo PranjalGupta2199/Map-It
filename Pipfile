@@ -6,8 +6,6 @@ name = "pypi"
 [packages]
 flask = "*"
 flask-restful = "*"
-autoenv = "*"
-python-dotenv = "*"
 
 [dev-packages]
 
