@@ -21,13 +21,11 @@ class GeoServer(object):
 
         GeoServer._instance = self
         GeoServer.check()
-
-    def __call__(self):
-        if GeoServer._instance is None:
-            return self.__init__()
-        else :
-            GeoServer.check()
-            return GeoServer._instance
+    
+    def __new__(cls):
+        if __class__._instance is None:
+            __class__._instance = object.__new__(cls)
+        return __class__._instance    
 
     def connect(self):
         if self.catalog is None:
