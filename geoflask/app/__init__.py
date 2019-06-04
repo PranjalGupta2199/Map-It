@@ -1,7 +1,7 @@
 import os
 from flask import Flask
 from geoflask.views import add_views
-from app.geoInterface import GeoServer
+from .geoInterface import GeoServer
 try:
     from instance.config import get_env
 except ImportError:
@@ -12,5 +12,5 @@ def create_app():
     env = get_env('development')
     app.config.from_object(env)
     add_views(app)
-
+    GeoServer()
     return app
