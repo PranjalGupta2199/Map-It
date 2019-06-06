@@ -8,6 +8,7 @@ flask = "*"
 flask-restful = "*"
 pytest = "*"
 requests = "*"
+"gsconfig-py3" = "*"
 
 [dev-packages]
 

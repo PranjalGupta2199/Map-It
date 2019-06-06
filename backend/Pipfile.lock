@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "4482108fe123cb35e3a7155c0fd3e5d2c30466abd212a93473f52b81c321a2e2"
+            "sha256": "181d298ab3f67b15420a7011837501c55ec3ffcc5e6323efec0c8680976760c1"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -73,6 +73,13 @@
             ],
             "index": "pypi",
             "version": "==0.3.7"
+        },
+        "gsconfig-py3": {
+            "hashes": [
+                "sha256:4152cbd74548780a69d6f2667ee611e16f063473c47882b2b3f3edefaf6a9f5e"
+            ],
+            "index": "pypi",
+            "version": "==1.0.7"
         },
         "idna": {
             "hashes": [

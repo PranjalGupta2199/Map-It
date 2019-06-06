@@ -1,8 +1,6 @@
 init:
-	pip install pipenv
-	pipenv install
-	git clone https://github.com/boundlessgeo/gsconfig.git
-	cd gsconfig && python setup.py develop 
-	cd ..
+	cd backend/
+	pip install pipenv --upgrade
+	pipenv install --dev
 test:
 	pipenv run pytest 
