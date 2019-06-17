@@ -1,3 +1,4 @@
 gsconfig/
 .vscode/
 *.pyc
+node_modules/
