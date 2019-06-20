@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Navbar, Nav, Form, FormControl, Button, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav, Button} from "react-bootstrap";
 import Img from '../assets/Img.jpg';
 import logo from '../assets/logo.svg';
 import Carousel from 'react-bootstrap/Carousel';
 
 
-export class CustomCarousel extends Component{
+class CustomCarousel extends Component{
   render(){
    return(
       <Carousel>
@@ -26,7 +26,6 @@ export class CustomCarousel extends Component{
             src={Img}
             alt="Third slide"
           />
-
           <Carousel.Caption>
             <h3>Third slide label</h3>
             <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
@@ -37,7 +36,7 @@ export class CustomCarousel extends Component{
   }
 }
 
-export class Navigation extends Component{
+class Navigation extends Component{
   
   render(){
   
@@ -57,7 +56,7 @@ export class Navigation extends Component{
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link href="https://github.com/PranjalGupta2199/Map-It">Github</Nav.Link>
-          <Nav.Link href="https://bisag.gujarat.gov.in/">BISAG</Nav.Link>
+          <Nav.Link href="/view">BISAG</Nav.Link>
         </Nav>
         <Button variant="warning">LOGIN</Button>
         </Navbar.Collapse>
@@ -65,3 +64,16 @@ export class Navigation extends Component{
     )
   }
 }
+
+class Dashboard extends Component{
+  render(){
+    return(
+      <div>
+        <Navigation />
+        <CustomCarousel />
+      </div>
+    )
+  }
+}
+
+export default Dashboard;
