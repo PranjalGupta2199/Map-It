@@ -46,21 +46,3 @@ class GeoServer(object):
     
     def get_auth(self):
         return (__class__.username, __class__.password)
-
-    def get_workspace(self, name=None):
-        if name is not None:
-            return self.catalog.get_workspace(name)
-        else:
-            return self.catalog.get_workspaces()
-
-    def get_store(self, name=None):
-        if name is not None:
-            return self.catalog.get_store(name)
-        else:
-            return self.catalog.get_stores()
-
-    def create_mozaic(self, *args, **kwargs):
-        pass
-    
-    def add_granules(self, *args, **kwargs):
-        pass

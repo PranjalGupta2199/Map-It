@@ -1,11 +1,21 @@
-from flask import Flask, Blueprint
+import requests as req
+from flask import Flask, Blueprint,request,json
 from flask_restful import Resource, Api
-from geoflask.app.geoInterface import GeoServer
-from flask import json
+from ..app import geoInterface
 
+
+server = geoInterface.GeoServer.server
+auth = geoInterface.GeoServer().get_auth()
 workspace_blueprint = Blueprint("workspace", __name__)
 
 @workspace_blueprint.route('/workspace', methods=['GET'])
-def get(name=None): 
-    print (type(GeoServer().get_workspace()[0]))
-    return "Hello World"
+def get(): 
+    name = request.args.get('workspace')
+    if name is None :
+        link = server + ('/workspaces')
+    else :
+        link = server + ('/workspaces/{}'.format(name))
+    
+    resp = req.get(url=link, auth=auth)
+    
+    return json.jsonify(resp.text)
