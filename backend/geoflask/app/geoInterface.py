@@ -10,18 +10,18 @@ class GeoServer(object):
     password = None
     _instance = None
 
-    def __init__(self,link="None",username="admin", password="geoserver"):
+    def __init__(self,link="None",user="admin", pwd="geoserver"):
         if link is not None: 
             server = link
-        __class__.username = username
-        __class__.password = password
+        __class__.username = user
+        __class__.password = pwd
         
         self.catalog = None
         self.connect()
 
         GeoServer._instance = self
         GeoServer.check()
-    
+
     def __new__(cls):
         if __class__._instance is None:
             __class__._instance = object.__new__(cls)
@@ -44,6 +44,9 @@ class GeoServer(object):
             print ("Connection Timed Out.")
             sys.exit(0)
     
+    def get_auth(self):
+        return (__class__.username, __class__.password)
+
     def get_workspace(self, name=None):
         if name is not None:
             return self.catalog.get_workspace(name)
