@@ -3,10 +3,10 @@ from flask import Flask, Blueprint,request,json
 from flask_restful import Resource, Api
 from ..app import geoInterface
 
-server = geoInterface.GeoServer.server
-auth = geoInterface.GeoServer().get_auth()
 layer = Blueprint("layer", __name__)
 
+server = geoInterface.GeoServer.link
+auth = geoInterface.GeoServer().get_auth()
 
 @layer.route('/layer', methods=['GET'])
 def get():

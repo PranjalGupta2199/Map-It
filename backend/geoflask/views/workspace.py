@@ -4,9 +4,10 @@ from flask_restful import Resource, Api
 from ..app import geoInterface
 
 
-server = geoInterface.GeoServer.server
-auth = geoInterface.GeoServer().get_auth()
 workspace_blueprint = Blueprint("workspace", __name__)
+
+server = geoInterface.GeoServer.link
+auth = geoInterface.GeoServer().get_auth()
 
 @workspace_blueprint.route('/workspace', methods=['GET'])
 def get(): 
