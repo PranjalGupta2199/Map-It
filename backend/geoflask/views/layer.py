@@ -1,6 +1,5 @@
 import requests as req
 from flask import Flask, Blueprint,request,json
-from flask_restful import Resource, Api
 from ..app import geoInterface
 
 layer = Blueprint("layer", __name__)
@@ -18,4 +17,4 @@ def get():
 
     resp = req.get(url=layerLink, auth=auth)
 
-    return json.jsonify(resp.text)
+    return resp.text
