@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Map from 'ol/Map.js';
+import config from "react-global-configuration";
 import {defaults as defaultControls, ScaleLine} from 'ol/control.js';
 import View from 'ol/View.js';
 import TileLayer from 'ol/layer/Tile.js';
@@ -9,14 +10,20 @@ export class WMSContainer extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { center: [69, 22], zoom: 4 };
+    this.state = {
+      layerName: this.props.layer,
+      center: [69, 22], 
+      zoom: 4,
+     };
 
+    console.log(this.state.layerName)
+    console.log(config.get('geoserver') + ('/wms')) 
     this.layer = [
       new TileLayer({
         source: new TileWMS({
-          url: 'http://localhost:8080/geoserver/wms',
+          url: config.get('geoserver') + ('/wms'),
           params: {
-            'LAYERS': 'NaturalEarth:bisag',
+            'LAYERS': this.state.layerName,
             'TILED': true
           }
         })
