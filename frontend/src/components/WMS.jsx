@@ -16,8 +16,6 @@ export class WMSContainer extends Component {
       zoom: 4,
      };
 
-    console.log(this.state.layerName)
-    console.log(config.get('geoserver') + ('/wms')) 
     this.layer = [
       new TileLayer({
         source: new TileWMS({
@@ -44,40 +42,19 @@ export class WMSContainer extends Component {
       }),
     });
   }
-
-  updateMap() {
-    this.olmap.getView().setCenter(this.state.center);
-    this.olmap.getView().setZoom(this.state.zoom);
-  }
-
   componentDidMount() {
     this.olmap.setTarget("map");
-
     // Listen to map changes
-    this.olmap.on("moveend", () => {
-      let center = this.olmap.getView().getCenter();
-      let zoom = this.olmap.getView().getZoom();
-      this.setState({ center, zoom });
-    });
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    let center = this.olmap.getView().getCenter();
-    let zoom = this.olmap.getView().getZoom();
-    if (center === nextState.center && zoom === nextState.zoom) return false;
-    return true;
-  }
-
-  userAction() {
-    this.setState({ center: [546000, 6868000], zoom: 5 });
   }
 
   render() {
-    this.updateMap(); // Update map on render?
     return (
-      <div id="map" style={{ width: "100%", height: "100%" }}>
-        <button onClick={e => this.userAction()}>setState on click</button>
-      </div>
+      <div 
+        id="map" 
+        style={{ 
+          width: "100%", 
+          height: "100%" 
+        }}> </div>
     );
   }
 }
