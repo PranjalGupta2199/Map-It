@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import CustomCarousel from "../components/CustomCarousel";
-import Navigation from "../components/Navigation";
+import Header from "../components/Header";
 
 
 class Dashboard extends Component{
   render(){
     return(
       <div>
-        <Navigation />
+        <Header />
         <CustomCarousel />
       </div>
     )

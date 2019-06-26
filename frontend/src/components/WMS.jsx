@@ -6,7 +6,7 @@ import View from 'ol/View.js';
 import TileLayer from 'ol/layer/Tile.js';
 import TileWMS from 'ol/source/TileWMS.js';
 
-export class WMSContainer extends Component {
+class WMSContainer extends Component {
   constructor(props) {
     super(props);
 
@@ -58,3 +58,5 @@ export class WMSContainer extends Component {
     );
   }
 }
+
+export default WMSContainer;

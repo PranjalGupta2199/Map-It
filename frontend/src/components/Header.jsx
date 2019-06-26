@@ -32,4 +32,14 @@ class Navigation extends Component{
   }
 }
 
-export default Navigation;
+class Header extends Component{
+  render(){
+    return(
+      <div> 
+        <Navigation />
+      </div>
+    )
+  }
+}
+
+export default Header;

@@ -15,10 +15,8 @@ authcache = geoInterface.GeoCache().get_auth()
 def get():
     link = cache + ('/rest/layers')
     param = request.args.get('layer')
-    print (param)
     r = req.get(link, auth=authcache)
     layerList = r.text.replace('"', '').replace("[", '').replace(']', '').split(',')
-    print (layerList)
 
     resp = {
         'source' : 'server',

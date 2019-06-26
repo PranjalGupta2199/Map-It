@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
 import config from "react-global-configuration";
-import { WMSContainer } from "../components/WMS";
+import WMSContainer  from "../components/WMS";
 import WMTSContainer from '../components/WMTS';
+import ErrorPage from "./Error404";
+import Header from "../components/Header";
+
 class Map extends Component{
   constructor(props){
     super(props);
@@ -17,7 +20,6 @@ class Map extends Component{
     axios
     .get(config.get("backend") + config.get("endpoints.map") + `?layer=${this.state.layer}`)
     .then(response => {
-      console.log(response.data.source);
       if (response.data.source === "server") {
         this.setState({cache : false});
       } else if (response.data.source === "cache"){
@@ -31,13 +33,16 @@ class Map extends Component{
 
   render(){
     let map = undefined;
-    if (!this.state.cache) {
+    if (this.state.cache === false) {
         map = <WMSContainer layer={this.state.layer} />
-    } else {
+    } else if (this.state.cache === true) {
       map = <WMTSContainer layer={this.state.layer} />
+    }else {
+      map = <ErrorPage/>
     }
     return (
       <div>
+        <Header />
         {map}
       </div> 
     )
