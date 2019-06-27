@@ -10,7 +10,7 @@ This repository is a part of the ongoing project during my internship at BISAG, 
 * Flask + PyTest
 * PostGIS + Postgres SQL
 * GeoServer (Java) + GeoWebCache (Java)
-* Gsconfig (Python)
+* Requests (Python)
 * Bootstrap 4
 
 ### Contributors:
