@@ -2,7 +2,7 @@ gsconfig/
 .vscode/
 XDG_CACHE_HOME/
 *.pyc
-frontend/node_modules
+node_modules/
 *.pnp
 *.pnp.js
 frontend/coverage
