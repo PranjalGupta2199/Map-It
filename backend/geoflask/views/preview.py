@@ -26,9 +26,15 @@ def get():
 
     for layers in layerList:
         if (layers == param):
-            resp['source'] = 'cache'
-            resp['link'] = cache
-            break
+            currSeed = eval(req.get(cache + ('/rest/seed/{}.json'.format(param)),\
+                auth=authcache).text)
+            if (len(currSeed['long-array-array']) == 0):
+                resp['source'] = 'cache'
+                resp['link'] = cache
+                break
+            else:
+                print ('Seeding currently in progress')
+                continue
     else :
         link = server + ('/layers/{}'.format(param))
         r = req.get(link, auth=authserver)
@@ -41,7 +47,8 @@ def get():
 
 def add(response):
     layer = response['layer']
-    server_link = response['source']
+    server_link = response['link']
+    print (server_link)
     wkdir = os.getcwd() + ('/geoflask/views/add_xml.txt')
     
     link = cache + ('/rest/layers/{}.xml'.format(layer))
@@ -54,7 +61,6 @@ def add(response):
 
 def seed(layer):
     link = cache + ('/rest/seed/{}.xml'.format(layer))
-    #print (req.get(cache + ('/rest/seed/{}.json'.format(layer)),auth=authcache).text)
     wkdir = os.getcwd() + ('/geoflask/views/seed_xml.txt')
     with open(wkdir, 'r') as f:
         seedRequest = f.read().format(layer)
