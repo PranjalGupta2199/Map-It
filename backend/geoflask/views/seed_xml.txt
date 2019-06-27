@@ -1,0 +1,1 @@
+<seedRequest><name>{}</name><srs><number>4326</number></srs><zoomStart>1</zoomStart><zoomStop>12</zoomStop><format>image/png</format><type>seed</type><threadCount>8</threadCount></seedRequest>

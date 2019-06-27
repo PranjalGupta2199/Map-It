@@ -1,0 +1,15 @@
+<wmsLayer>
+  <name>{}</name>
+  <mimeFormats>
+    <string>image/png</string>
+  </mimeFormats>
+  <gridSubsets>
+    <gridSubset>
+      <gridSetName>EPSG:4326</gridSetName>
+    </gridSubset>
+  </gridSubsets>
+  <wmsUrl>
+    <string>{}</string>
+  </wmsUrl>
+  <wmsLayers>{}</wmsLayers>
+</wmsLayer>
