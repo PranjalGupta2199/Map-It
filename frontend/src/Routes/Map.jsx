@@ -4,7 +4,7 @@ import config from "react-global-configuration";
 import WMSContainer  from "../components/WMS";
 import WMTSContainer from '../components/WMTS';
 import ErrorPage from "./Error404";
-import Header from "../components/Header";
+import MapHeader from "../components/MapHeader";
 
 class Map extends Component{
   constructor(props){
@@ -42,7 +42,7 @@ class Map extends Component{
     }
     return (
       <div>
-        <Header />
+        <MapHeader />
         {map}
       </div> 
     )

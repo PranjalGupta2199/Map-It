@@ -1,16 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { Navbar} from "react-bootstrap";
-import logo from '../assets/logo.svg';
 import clsx from 'clsx';
-import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import DrawerItem from './DrawerItem';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -20,6 +15,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import Drawer from '@material-ui/core/Drawer';
 
 const drawerWidth = 240;
 
@@ -82,100 +78,40 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function ButtonAppBar() {  
+
+export default function MapHeader(){
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const[open, setOpen] = React.useState(false);
 
   function handleDrawerOpen() {
-    setOpen(true);
-  }
+      setOpen(true);
+    }
+  
+    function handleDrawerClose() {
+      setOpen(false);
+    }
 
-  function handleDrawerClose() {
-    setOpen(false);
-  }
-
-  return (
-    <div className={classes.root}>
+  return(
+    <div className={classes.root} style={{width: "5%", "marginBottom" : "-50px"}}>
       <CssBaseline />
       <AppBar 
         position="sticky" 
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
-        color="primary">
-        <Toolbar>
+        color="default">     
         <IconButton
-            color="inherit"
+            color="primary"
             aria-label="Open drawer"
             onClick={handleDrawerOpen}
             edge="start"
-            className={clsx(classes.menuButton, open && classes.hide)}
-          >  
+            size="medium"
+            className={clsx(classes.menuButton, open && classes.hide)}>  
           <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            <Navbar.Brand href="/" variant="dark">
-              <img
-                alt=""
-                src={logo}
-                width="30"
-                height="30"
-                className="d-inline-block align-top"
-              />
-            </Navbar.Brand>
-            {'Map It !'}
-          </Typography>
-        <Button color="inherit">Login</Button>
-        </Toolbar>
+        </IconButton>
+        <DrawerItem/>
       </AppBar>
-
-      <Drawer
-        className={classes.drawer}
-        variant="persistent"
-        anchor="left"
-        open={open}
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-      >
-        <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>
-        </div>
-        <Divider />
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
     </div>
   );
 }
-
-
-class Header extends Component{
-  render(){
-    return(
-      <div> 
-        <ButtonAppBar />
-      </div>
-    )
-  }
-}
-
-export default Header;
