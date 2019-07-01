@@ -8,6 +8,7 @@ function configuration (){
     endpoints:{
         map: '/preview',
         layer: '/layer',
+        workspace: '/workspace',
     },
     'isLoggedIn' : false,
   })
