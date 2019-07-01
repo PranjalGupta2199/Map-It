@@ -15,6 +15,9 @@ def get():
     else :
         layerLink = server + ('/layers/{}'.format(name))
 
-    resp = req.get(url=layerLink, auth=auth)
-
-    return resp.text
+    resp =  req.get(url=layerLink, auth=auth).json()
+    
+    try: 
+        return json.jsonify(resp['layers']['layer'])
+    except:
+        return json.jsonify(resp)

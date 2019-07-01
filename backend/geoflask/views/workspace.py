@@ -16,6 +16,9 @@ def get():
     else :
         link = server + ('/workspaces/{}'.format(name))
     
-    resp = req.get(url=link, auth=auth)
+    resp =  req.get(url=link, auth=auth).json()
     
-    return json.jsonify(resp.text)
+    try: 
+        return json.jsonify(resp['workspaces']['workspace'])
+    except:
+        return json.jsonify(resp)
