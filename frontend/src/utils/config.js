@@ -7,6 +7,7 @@ function configuration (){
     geowebcache: `http://localhost:8080/geowebcache`,
     endpoints:{
         map: '/preview',
+        layer: '/layer',
     },
     'isLoggedIn' : false,
   })

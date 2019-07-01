@@ -128,7 +128,7 @@ function ButtonAppBar() {
           </Typography>
         <Button color="inherit">Login</Button>
         </Toolbar>
-      </AppBar>
+
 
       <Drawer
         className={classes.drawer}
@@ -163,6 +163,7 @@ function ButtonAppBar() {
           ))}
         </List>
       </Drawer>
+      </AppBar>
     </div>
   );
 }
