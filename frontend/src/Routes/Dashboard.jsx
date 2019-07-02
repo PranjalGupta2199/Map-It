@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CustomCarousel from "../components/CustomCarousel";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 
 class Dashboard extends Component{
@@ -9,6 +10,7 @@ class Dashboard extends Component{
       <div>
         <Header />
         <CustomCarousel />
+        <Footer />
       </div>
     )
   }

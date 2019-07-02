@@ -126,7 +126,7 @@ function ButtonAppBar() {
             </Navbar.Brand>
             {'Map It !'}
           </Typography>
-        <Button color="inherit">Login</Button>
+        <Button href='/login' color="inherit">Login</Button>
         </Toolbar>
 
 

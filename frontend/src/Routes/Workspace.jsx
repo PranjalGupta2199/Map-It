@@ -3,6 +3,7 @@ import Table from "../components/Table";
 import axios from "axios";
 import config from "react-global-configuration";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 class Workspace extends Component{
   constructor(props){
@@ -33,6 +34,7 @@ class Workspace extends Component{
         <div> 
           <Header />
           <Table data={this.state.data}/>
+          <Footer />
         </div>
       )
       

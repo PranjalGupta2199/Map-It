@@ -5,6 +5,8 @@ import WMSContainer  from "../components/WMS";
 import WMTSContainer from '../components/WMTS';
 import ErrorPage from "./Error404";
 import MapHeader from "../components/MapHeader";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 class Map extends Component{
   constructor(props){
@@ -44,6 +46,7 @@ class Map extends Component{
       <div>
         <MapHeader />
         {map}
+        <Footer />
       </div> 
     )
   }
