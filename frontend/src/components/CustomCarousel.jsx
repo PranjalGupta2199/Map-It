@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Img from '../assets/Img.jpg';
+import ncog from '../assets/ncog.png';
 import Carousel from 'react-bootstrap/Carousel';
 
 
@@ -10,8 +10,10 @@ class CustomCarousel extends Component{
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={Img}
+            src={ncog}
             alt="First slide"
+            width="100%"
+            height="80%"
           />
           <Carousel.Caption>
             <h3>First slide label</h3>
@@ -21,8 +23,10 @@ class CustomCarousel extends Component{
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={Img}
+            src={ncog}
             alt="Third slide"
+            width="100%"
+            height="80%"
           />
           <Carousel.Caption>
             <h3>Third slide label</h3>

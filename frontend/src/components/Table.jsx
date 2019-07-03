@@ -7,23 +7,19 @@ class Table extends Component {
     super(props);
     this.state = {
       data : props.data,
-      columns:[],
+      columns: props.columns,
       loading: true,
     }
   }
 
-  render(){  
-    const columns = Object.keys(this.state.data[0]).map(function(key) {
-      return {'Header': key, 'accessor':key}
-    });
-
-  return (
+  render(){
+    return (
       <ReactTable
-          data={this.state.data}
-          columns={columns}
-          defaultPageSize = {10}
+        data={this.state.data}
+        columns={this.state.columns}
+        defaultPageSize = {10}
         />      
-  )};
+    )};
 }
 
 export default Table;

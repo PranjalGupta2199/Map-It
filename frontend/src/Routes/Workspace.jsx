@@ -33,6 +33,7 @@ class Workspace extends Component{
       return (
         <div> 
           <Header />
+          <h1><center> Available Workspace </center></h1>
           <Table data={this.state.data}/>
           <Footer />
         </div>

@@ -4,12 +4,22 @@ import axios from "axios";
 import config from "react-global-configuration";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Map from './Map';
+import {Link } from 'react-router-dom';
 
 class Layers extends Component{
   constructor(props){
     super(props);
     this.state = {
       data : [],
+      columns: [
+        {Header: 'href',
+          accessor: 'href'},
+        {Header: 'name', 
+          accessor: 'name',
+          Cell: 
+        e =><Link to={{pathname: '/map', state: e.value,}}> {e.value} </Link>},
+        ],
       isLoading: false,
     }
   }
@@ -33,7 +43,8 @@ class Layers extends Component{
       return (
         <div> 
           <Header />
-          <Table data={this.state.data}/>
+          <h1><center> Available Layers </center></h1>
+          <Table data={this.state.data} columns={this.state.columns} />
           <Footer />
         </div>
       )

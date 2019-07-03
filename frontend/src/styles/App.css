@@ -42,3 +42,10 @@
     max-width: 320px;
   }
 }
+
+.ReactTable {
+  margin-top: 20px;
+  margin-right: 20%;
+  margin-bottom: 20px;
+  margin-left: 20%;
+}
