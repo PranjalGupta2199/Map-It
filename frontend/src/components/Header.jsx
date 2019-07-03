@@ -20,6 +20,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import config from "react-global-configuration";
 
 const drawerWidth = 240;
 
@@ -95,6 +96,16 @@ function ButtonAppBar() {
     setOpen(false);
   }
 
+  function handleLogin()
+  {
+    if (config.get('isLoggedIn'))
+      return (<div> {config.get('userName')}<Button href='/' color="inherit">Logout</Button></div>)
+    else {
+      config.set({'isLoggedIn':false, 'userName':null})
+      return (<Button href='/login' color="inherit">Login</Button>)
+    }
+  }
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -126,11 +137,10 @@ function ButtonAppBar() {
             </Navbar.Brand>
             {'Map It !'}
           </Typography>
-        <Button href='/login' color="inherit">Login</Button>
+          {handleLogin()}
         </Toolbar>
 
-
-      <Drawer
+        <Drawer
         className={classes.drawer}
         variant="persistent"
         anchor="left"
@@ -162,7 +172,7 @@ function ButtonAppBar() {
             </ListItem>
           ))}
         </List>
-      </Drawer>
+      </Drawer>      
       </AppBar>
     </div>
   );

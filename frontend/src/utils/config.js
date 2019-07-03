@@ -10,8 +10,11 @@ function configuration (){
         layer: '/layer',
         workspace: '/workspace',
     },
-    'isLoggedIn' : false,
-  })
+    isLoggedIn : false,
+    userName : null,
+  },
+  {'freeze' :  false}
+  )
 }
 
 export default configuration;
