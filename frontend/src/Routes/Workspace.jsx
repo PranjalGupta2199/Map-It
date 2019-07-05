@@ -10,6 +10,12 @@ class Workspace extends Component{
     super(props);
     this.state = {
       data : [],
+      columns: [
+        {Header: 'href',
+          accessor: 'href'},
+        {Header: 'name', 
+          accessor: 'name'},
+        ],
       isLoading: false,
     }
   }
@@ -34,7 +40,7 @@ class Workspace extends Component{
         <div> 
           <Header />
           <h1><center> Available Workspace </center></h1>
-          <Table data={this.state.data}/>
+          <Table data={this.state.data} columns={this.state.columns}/>
           <Footer />
         </div>
       )

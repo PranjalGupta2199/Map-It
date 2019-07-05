@@ -4,7 +4,6 @@ import axios from "axios";
 import config from "react-global-configuration";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Map from './Map';
 import {Link } from 'react-router-dom';
 
 class Layers extends Component{
