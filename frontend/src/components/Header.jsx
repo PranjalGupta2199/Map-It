@@ -80,7 +80,7 @@ function ButtonAppBar(props) {
     if (config.get('isLoggedIn'))
       return (<div> {config.get('userName')}<Button href='/' color="inherit">Logout</Button></div>)
     else {
-      config.set({'isLoggedIn':false, 'userName':null})
+//      config.set({'isLoggedIn':false, 'userName':null})
       return (<Button href='/login' color="inherit">Login</Button>)
     }
   }

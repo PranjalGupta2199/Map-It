@@ -33,7 +33,7 @@ class Login extends Component {
 			return (<div> <p align='center'>User is not registered.</p> </div>)
 		if (this.state.login_successful)
 		{
-			config.set({'isLoggedIn' : true,'userName' : this.state.email.substring(0,this.state.email.indexOf("@"))});
+			//config.set({'isLoggedIn' : true,'userName' : this.state.email.substring(0,this.state.email.indexOf("@"))});
 			return (<Redirect to = '/'/>)
 		}
 	}

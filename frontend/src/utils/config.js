@@ -13,7 +13,7 @@ function configuration (){
     isLoggedIn : false,
     userName : null,
   },
-  {'freeze' :  false}
+  {'freeze' :  true}
   )
 }
 
