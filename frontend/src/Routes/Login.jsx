@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import  { Redirect } from 'react-router-dom'
-import config from "react-global-configuration";
-// import Bootstrap from "react-bootstrap";
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import  { Redirect } from 'react-router-dom';
+import UserProfile from "../utils/User";
 
 class Login extends Component {
 	constructor(props) {
@@ -33,8 +32,9 @@ class Login extends Component {
 			return (<div> <p align='center'>User is not registered.</p> </div>)
 		if (this.state.login_successful)
 		{
-			//config.set({'isLoggedIn' : true,'userName' : this.state.email.substring(0,this.state.email.indexOf("@"))});
-			return (<Redirect to = '/'/>)
+      UserProfile.set_isLoggedIn(true);
+			UserProfile.setName(this.state.email.substring(0,this.state.email.indexOf("@")));
+      return (<Redirect to = '/dashboard'/>)
 		}
 	}
 	handleSubmit = event => {

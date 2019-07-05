@@ -4,10 +4,9 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import { NavbarBrand} from "react-bootstrap";
+import UserProfile from '../utils/User';
 import clsx from 'clsx';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import config from "react-global-configuration";
 import NavBrand from './NavBrand';
 
 const drawerWidth = 240;
@@ -75,16 +74,15 @@ function ButtonAppBar(props) {
   const classes = useStyles();
   const [open] = React.useState(false);
 
-  function handleLogin()
-  {
-    if (config.get('isLoggedIn'))
-      return (<div> {config.get('userName')}<Button href='/' color="inherit">Logout</Button></div>)
+  function handleLogin(){
+    if (UserProfile.get_isLoggedIn())
+      return (<div> {UserProfile.getName()}<Button href='/' color="inherit">Logout</Button></div>)
     else {
-//      config.set({'isLoggedIn':false, 'userName':null})
+      UserProfile.set_isLoggedIn(false);
+      UserProfile.setName('');
       return (<Button href='/login' color="inherit">Login</Button>)
     }
-  }
-
+  } 
   return (
     <div className={classes.root}>
       <CssBaseline />

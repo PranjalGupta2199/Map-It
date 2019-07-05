@@ -48,6 +48,7 @@ class WMTSContainer extends Component{
             source: new WMTS((options)),
           }),
         ],
+        theme: null,
         target: 'map',
         view: new View({
           center: this.state.center,

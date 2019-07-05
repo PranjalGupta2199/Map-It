@@ -49,3 +49,16 @@
   margin-bottom: 20px;
   margin-left: 20%;
 }
+
+.ol-zoom {
+  top: 52px;
+}
+.ol-toggle-options {
+  z-index: 1000;
+  background: rgba(255,255,255,0.4);
+  border-radius: 4px;
+  padding: 2px;
+  position: absolute;
+  left: 8px;
+  top: 8px;
+}
