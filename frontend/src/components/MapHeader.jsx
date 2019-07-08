@@ -147,7 +147,7 @@ export default function MapHeader(){
               }
             ].map(item =>(
                 <div> 
-                  <ListItem button component={Link} key={item.menu} to={item.link}>
+                  <ListItem button component={Link} key={item.id} to={item.link}>
                     <ListItemText primary={item.menu} />
                   </ListItem>
                   <Divider />

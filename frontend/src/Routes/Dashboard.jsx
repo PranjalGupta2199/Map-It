@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-
 import {Card, Button} from 'react-bootstrap';
-import config from "react-global-configuration";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -10,7 +8,7 @@ const Cards = [
     title:'Layers',
     imgSrc: 'https://docs.geoserver.org/stable/en/user/_images/data_layers.png',
     text: 'Lists all the different layers available on the Server',
-    link:'/layers' ,
+    link: '/layers',
   },
   {
     title:'Workspaces',
@@ -59,22 +57,18 @@ function CardRender(props){
 }
 
 class Dashboard extends Component{
-	render()
-	{
-	  return (
-      <div>
-        <Header/>
-        <div className='m-3'>
-          <div className="row">
-              {Cards.map((object, i) => {
-                      return <CardRender cardObject={object} key={i} />;
-                  })}
-              {console.log(config.get('geoserver'))}
-            </div>
-        </div>
-        <Footer/>
+	render(){
+  return (
+    <div>
+      <Header/>
+      <div className='m-3'>
+        <div className="row">
+            {Cards.map((object, i) => {return <CardRender cardObject={object} key={i} />})}
+          </div>
       </div>
-	  );
+      <Footer/>
+    </div>
+  );
 	}
 }
 

@@ -5,11 +5,11 @@ import {defaults as defaultControls, ScaleLine} from 'ol/control.js';
 import View from 'ol/View.js';
 import TileLayer from 'ol/layer/Tile.js';
 import TileWMS from 'ol/source/TileWMS.js';
+import {fromLonLat} from 'ol/proj.js';
 
 class WMSContainer extends Component {
   constructor(props) {
     super(props);
-    console.log(props)
     const x = (this.props.bbox.maxx + this.props.bbox.minx)/2;
     const y = (this.props.bbox.maxy + this.props.bbox.miny)/2;
 
@@ -40,7 +40,7 @@ class WMSContainer extends Component {
       target: null,
       layers: this.layer,
       view: new View({
-        center: this.state.center,
+        center: fromLonLat(this.state.center),
         zoom: this.state.zoom
       }),
     });
@@ -57,7 +57,7 @@ class WMSContainer extends Component {
         style={{ 
           width: "100%", 
           height: "100%" 
-        }}> </div>
+        }}></div>
     );
   }
 }
