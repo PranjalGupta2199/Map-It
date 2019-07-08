@@ -71,6 +71,13 @@ def seed(layer):
 def get_center(layer):
     link = 'http://localhost:5000' + ('/layer?layer={}'.format(layer))
     resp = req.get(link, auth=authserver).json()
-    resource = resp['layer']['resource']['href']
-    layer_detail = req.get(resource, auth=authserver).json()['coverage']['nativeBoundingBox']
+    try:
+        resource = resp['layer']['resource']['href']
+    except:
+        resource = resp['bbox']['resource']['href']
+    resp2 = req.get(resource, auth=authserver).json()
+    try:
+        layer_detail = resp2['coverage']['nativeBoundingBox']
+    except:
+        layer_detail = resp2['featureType']['nativeBoundingBox']
     return layer_detail
