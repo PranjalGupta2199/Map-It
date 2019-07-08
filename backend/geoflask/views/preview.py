@@ -22,8 +22,10 @@ def get():
         'source' : 'server',
         'link' : server[:server.find('/rest')] + ('/wms'),
         'layer' : param,
+        'bbox' : {}
     }
 
+    resp['bbox'] = get_center(param)
     for layers in layerList:
         if (layers == param):
             currSeed = eval(req.get(cache + ('/rest/seed/{}.json'.format(param)),\
@@ -48,7 +50,6 @@ def get():
 def add(response):
     layer = response['layer']
     server_link = response['link']
-    print (server_link)
     wkdir = os.getcwd() + ('/geoflask/views/add_xml.txt')
     
     link = cache + ('/rest/layers/{}.xml'.format(layer))
@@ -66,3 +67,10 @@ def seed(layer):
         seedRequest = f.read().format(layer)
     headers = {"Content-type": "text/xml"} 
     r = req.post(url=link, auth=authcache, headers=headers, data=seedRequest)
+
+def get_center(layer):
+    link = 'http://localhost:5000' + ('/layer?layer={}'.format(layer))
+    resp = req.get(link, auth=authserver).json()
+    resource = resp['layer']['resource']['href']
+    layer_detail = req.get(resource, auth=authserver).json()['coverage']['nativeBoundingBox']
+    return layer_detail

@@ -9,7 +9,7 @@ auth = geoInterface.GeoServer().get_auth()
 
 @layer.route('/layer', methods=['GET'])
 def get():
-    name = request.args.get('name')
+    name = request.args.get('layer')
     if name is None:
         layerLink = server + ('/layers')
     else :
