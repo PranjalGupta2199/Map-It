@@ -4,7 +4,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import UserProfile from '../utils/User';
 import clsx from 'clsx';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import NavBrand from './NavBrand';
@@ -74,15 +73,20 @@ function ButtonAppBar(props) {
   const classes = useStyles();
   const [open] = React.useState(false);
 
+
   function handleLogin(){
-    if (UserProfile.get_isLoggedIn())
-      return (<div> {UserProfile.getName()}<Button href='/' color="inherit">Logout</Button></div>)
+    if (localStorage.getItem('isLoggedIn') === 'true')
+      return (
+      <div> 
+        <Button href='/dashboard' color="inherit">Dashboard </Button> 
+        <Button href='/' color="inherit" onClick={() => localStorage.clear()}>Logout</Button>
+      </div>
+    )
     else {
-      UserProfile.set_isLoggedIn(false);
-      UserProfile.setName('');
       return (<Button href='/login' color="inherit">Login</Button>)
     }
   } 
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -107,7 +111,7 @@ function ButtonAppBar(props) {
 class Header extends Component{
   render(){
     return(
-      <div> 
+      <div>
         <ButtonAppBar />
       </div>
     )

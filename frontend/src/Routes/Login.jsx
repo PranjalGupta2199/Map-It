@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import  { Redirect } from 'react-router-dom';
-import UserProfile from "../utils/User";
 
 class Login extends Component {
 	constructor(props) {
@@ -32,8 +31,7 @@ class Login extends Component {
 			return (<div> <p align='center'>User is not registered.</p> </div>)
 		if (this.state.login_successful)
 		{
-      UserProfile.set_isLoggedIn(true);
-			UserProfile.setName(this.state.email.substring(0,this.state.email.indexOf("@")));
+      if (localStorage.length === 0) localStorage.setItem('isLoggedIn' , true)
       return (<Redirect to = '/dashboard'/>)
 		}
 	}
@@ -50,7 +48,7 @@ class Login extends Component {
                 body: JSON.stringify({'email': this.state.email, 'password': this.state.password})
              }
            ).then( response => {return response.json()})
-			.then (data => {console.log(data); return data})
+			.then (data => {return data})
 			.then(data => {
 				if(data.login==="password_incorrect") 
 					this.setState({password_incorrect : true})
@@ -59,7 +57,7 @@ class Login extends Component {
 				else if (data.login === "successful")
 					this.setState({login_successful : true});
 			})
-            .catch(err => console.log(err))
+            .catch(err => console.log("err"))
 		event.preventDefault();
 	}
 	render() {
