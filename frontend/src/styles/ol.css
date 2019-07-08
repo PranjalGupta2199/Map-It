@@ -1,0 +1,12 @@
+.ol-zoom-in {
+    left: unset;
+    right: 8px;
+    background-color: rgba(238, 1, 1, 0.85) !important;
+ }
+/*
+ .ol-control button{ 
+    background-color: rgba(246, 246, 246, 0.85) !important;
+}
+.ol-control button:hover{ 
+    background-color: rgba(246, 246, 246, 0.85) !important;
+}*/

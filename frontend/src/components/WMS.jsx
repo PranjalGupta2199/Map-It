@@ -9,11 +9,14 @@ import TileWMS from 'ol/source/TileWMS.js';
 class WMSContainer extends Component {
   constructor(props) {
     super(props);
+    console.log(props)
+    const x = (this.props.bbox.maxx + this.props.bbox.minx)/2;
+    const y = (this.props.bbox.maxy + this.props.bbox.miny)/2;
 
     this.state = {
       layerName: this.props.layer,
-      center: [69, 22], 
-      zoom: 4,
+      center: [x, y], 
+      zoom: 12,
      };
 
     this.layer = [

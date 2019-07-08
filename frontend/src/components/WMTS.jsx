@@ -6,17 +6,19 @@ import TileLayer from 'ol/layer/Tile.js';
 import WMTS, {optionsFromCapabilities} from 'ol/source/WMTS.js';
 import axios from "axios";
 import config from "react-global-configuration";
-
+import {fromLonLat} from 'ol/proj.js';
 
 class WMTSContainer extends Component{  
   constructor(props){
     super(props);
-    
+    const x = (this.props.bbox.maxx + this.props.bbox.minx)/2;
+    const y = (this.props.bbox.maxy + this.props.bbox.miny)/2;
+
     this.state = {
       layerName: this.props.layer,
       options: null,
-      center: [69,22],
-      zoom: 4,
+      center: [x,y],
+      zoom: 12,
     }
     this.parser = new WMTSCapabilities();
 
@@ -51,7 +53,7 @@ class WMTSContainer extends Component{
         theme: null,
         target: 'map',
         view: new View({
-          center: this.state.center,
+          center: fromLonLat(this.state.center),
           zoom: this.state.zoom,
         })
       })
