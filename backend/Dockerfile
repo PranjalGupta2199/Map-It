@@ -12,6 +12,6 @@ COPY . /app
 RUN pipenv lock -r > requirements.txt
 RUN pip3 install -r requirements.txt
 
-EXPOSE 5000 8080 5432
+EXPOSE 5000
 ENTRYPOINT [ "python3" ]
 CMD [ "run.py" ]

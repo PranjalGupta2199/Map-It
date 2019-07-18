@@ -8,7 +8,7 @@ class Config(object):
 	    'pw': 'password',
 	    'db': 'pranjal',
 	    'host': 'localhost',
-	    'port': '5432',
+	    'port': '15432',
     }
     DEBUG = False
     CSRF_ENABLED = True
