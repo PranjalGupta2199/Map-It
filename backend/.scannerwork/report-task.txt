@@ -1,7 +1,0 @@
-organization=pranjalgupta2199-github
-projectKey=PranjalGupta2199_geoFlask
-serverUrl=https://sonarcloud.io
-serverVersion=7.8.0.25699
-dashboardUrl=https://sonarcloud.io/dashboard?id=PranjalGupta2199_geoFlask
-ceTaskId=AWshKwCRdl0TCnwjvSHW
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWshKwCRdl0TCnwjvSHW

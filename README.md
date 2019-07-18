@@ -11,17 +11,15 @@ This repository is a part of the ongoing project during my internship at BISAG, 
   <img src="docs/img2.png" /> 
 </p>
 
-### Overview
+### Table of Contents
 
-This application is divided into 4 parts: 
-
-* Frontend (ReactJS + Jest)
-* Geoserver (JAVA)
-* GeoWebCache (JAVA)
-* Backend (Flask + PyTest)
-
-Geoserver is a software used to publish maps and GeoWebCache is used to seed layers from geoserver. Backend is developed as a service which will automate the process of seeding layers. Frontend provides a portal for viewing maps published on the geoserver. 
-
+* [Overview](https://github.com/PranjalGupta2199/Map-It/blob/develop/docs/overview.md)
+* [Installation]()
+    * [Frontend](https://github.com/PranjalGupta2199/Map-It/tree/develop/frontend)
+    * [Cache Server]()
+    * [Backend](https://github.com/PranjalGupta2199/Map-It/tree/develop/backend)
+* [Contribution](https://github.com/PranjalGupta2199/Map-It/blob/develop/docs/contributing.md)
+* [License](https://github.com/PranjalGupta2199/Map-It/blob/develop/LICENSE)
 
 ### Author
 * [Pranjal Gupta](https://github.com/PranjalGupta2199)
