@@ -14,7 +14,7 @@ This repository is a part of the ongoing project during my internship at BISAG, 
 ### Table of Contents
 
 * [Overview](https://github.com/PranjalGupta2199/Map-It/blob/develop/docs/overview.md)
-* [Installation]()
+* [Installation](https://github.com/PranjalGupta2199/Map-It/blob/develop/docs/installation.md)
     * [Frontend](https://github.com/PranjalGupta2199/Map-It/tree/develop/frontend)
     * [Cache Server]()
     * [Backend](https://github.com/PranjalGupta2199/Map-It/tree/develop/backend)
